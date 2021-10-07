@@ -7,11 +7,31 @@
           "title": "Name",
           "default": ""
        },
+       "title": {
+         "type": "string",
+         "title": "Name",
+         "default": ""
+      },
        "version": {
           "type": "string",
           "title": "Version",
           "default": ""
        },
+       "author": {
+         "type": "string",
+         "title": "Author",
+         "default": ""
+      },
+      "institution": {
+         "type": "string",
+         "title": "Institution",
+         "default": ""
+      },
+      "repository": {
+         "type": "string",
+         "title": "Repository",
+         "default": ""
+      },
        "requirements": {
           "type": "array",
           "items": {
