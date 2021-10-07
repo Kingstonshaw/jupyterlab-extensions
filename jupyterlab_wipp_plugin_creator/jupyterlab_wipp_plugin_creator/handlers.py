@@ -15,9 +15,9 @@ from .log import get_logger
 
 logger = get_logger()
 
-# Load the kubernetes config and create api instance, Only works inside of JupyterLab Pod
-config.load_incluster_config() 
-api_instance = client.CustomObjectsApi()
+# # Load the kubernetes config and create api instance, Only works inside of JupyterLab Pod
+# config.load_incluster_config() 
+# api_instance = client.CustomObjectsApi()
 
 
 class WippHandler(APIHandler):
@@ -127,75 +127,7 @@ class CreatePlugin(WippHandler):
             logger.error(f"Error when running copy command.", exc_info=e)
             self.write_error(500)
 
-        # Create Argojob to build container via Kubernetes Client
-        # Global definition strings
-        logger.info(f"Beginning to run docker container via the Kubernetes Client.")
 
-        group = 'argoproj.io' # str | The custom resource's group name
-        version = 'v1alpha1' # str | The custom resource's version
-        namespace = 'default' # str | The custom resource's namespace
-        plural = 'workflows' # str | The custom resource's plural name. For TPRs this would be lowercase plural kind.
-        
-        body = {
-            "apiVersion": "argoproj.io/v1alpha1",
-            "kind": "Workflow",
-            "metadata": {
-                "generateName": f"build-polus-plugin-{randomId}-",
-            },
-            "spec": {
-                "entrypoint": "kaniko",
-                "volumes": [
-                    {
-                        "name": "kaniko-secret",
-                        "secret": {
-                            "secretName": "labshare-docker",
-                            "items": [
-                                {
-                                    "key": ".dockerconfigjson",
-                                    "path": "config.json"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "name": "workdir",
-                        "persistentVolumeClaim": {
-                            "claimName": "wipp-pv-claim"
-                        }
-                    }
-                ],
-                "templates": [
-                    {
-                        "name": "kaniko",
-                        "container": {
-                            "image": "gcr.io/kaniko-project/executor:latest",
-                            "args": [
-                            f"--dockerfile=/workspace/Dockerfile",
-                            "--context=dir:///workspace",
-                            f"--destination=polusai/generated-plugins:{randomId}"
-                            ],
-                            "volumeMounts": [
-                                {
-                                    "name": "kaniko-secret",
-                                    "mountPath": "/kaniko/.docker",  
-                                },
-                                {
-                                    "name": "workdir",
-                                    "mountPath": "/workspace",
-                                    "subPath": f"temp/plugins/{randomId}"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        }
-        try:
-            api_response = api_instance.create_namespaced_custom_object(group, version, namespace, plural, body)
-            logger.info(api_response)
-        except ApiException as e:
-            logger.error("Exception when starting to build container via Kubernetes Client: %s\n" % e)
-            self.write_error(500)
 
 
 def setup_handlers(web_app):
