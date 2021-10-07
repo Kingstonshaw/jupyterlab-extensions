@@ -32,7 +32,14 @@ export class CreatorSidebar extends Widget {
 
     const formData: any = {
       name: "My Plugin",
+      title: "My Plugin",
       version: "0.1.0",
+      description: "",
+      author: "",
+      institution: "",
+      repository: "",
+      website: "",
+      citation: "",
       requirements: [''],
       inputs: [{}],
       outputs: [{}],
