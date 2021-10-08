@@ -44,8 +44,12 @@ export class CreatorSidebar extends Widget {
       inputs: [{}],
       outputs: [{}],
     };
-
-    this._form = new SchemaForm(schema, { formData: formData });
+    const uiSchema: any = {
+      "name": {"ui:widget":"textarea",
+      "ui:help": "Hint: this is a hint"},
+      
+    };
+    this._form = new SchemaForm(schema, { formData: formData,uiSchema:uiSchema },{liveMarkdown: true});
     layout.addWidget(this._form);
 
     const runButtonWidget = new Widget()
