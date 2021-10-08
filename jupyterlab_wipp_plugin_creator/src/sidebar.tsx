@@ -49,7 +49,7 @@ export class CreatorSidebar extends Widget {
       "ui:help": "Hint: this is a hint"},
       
     };
-    this._form = new SchemaForm(schema, { formData: formData,uiSchema:uiSchema },{liveMarkdown: true});
+    this._form = new SchemaForm(schema, { formData: formData,uiSchema:uiSchema,liveValidate:true},{liveMarkdown: true});
     layout.addWidget(this._form);
 
     const runButtonWidget = new Widget()
