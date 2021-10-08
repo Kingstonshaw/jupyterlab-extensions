@@ -9,7 +9,6 @@
     "version",
     "title",
     "description",
-    "containerId",
     "inputs",
     "outputs",
     "ui"
@@ -113,17 +112,6 @@
       "default": "",
       "examples": [
         "Peter Bajcsy, Joe Chalfoun, and Mylene Simon (2018). Web Microanalysis of Big Image Data. Springer-Verlag International"
-      ],
-      "pattern": "^(.*)$"
-    },
-    "containerId": {
-      "$id": "#/properties/containerId",
-      "type": "string",
-      "title": "ContainerId",
-      "description": "Docker image ID",
-      "default": "",
-      "examples": [
-        "wipp/example-plugin:1.0.0"
       ],
       "pattern": "^(.*)$"
     },
