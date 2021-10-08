@@ -26,6 +26,13 @@
       "minLength": 1,
       "pattern": "^(.*)$"
     },
+    "requirements": {
+      "type": "array",
+      "items": {
+         "type": "string"
+      },
+      "title": "Requirements"
+   },
     "version": {
       "$id": "#/properties/version",
       "type": "string",
