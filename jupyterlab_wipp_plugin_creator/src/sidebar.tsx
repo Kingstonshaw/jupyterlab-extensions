@@ -45,12 +45,16 @@ export class CreatorSidebar extends Widget {
       outputs: [{}],
     };
     const uiSchema: any = {
-      "name": {"ui:widget":"textarea",
-      "ui:help": "Hint: this is a hint"},
+      "name": {
+      "ui:help": "Hint: Enter human-readable name"},
+      "title": {
+      "ui:help": "Hint: Enter machine-readable name"},
+      "requirements": {
+        "ui:help": "Hint: Enter 3rd party python packages that the plugin requires"},
+      "ui:options": { accept: ".py" }
       
     };
-    // ,{liveMarkdown: true} is the IOption interface in deathbeds 
-    this._form = new SchemaForm(schema, { formData: formData,uiSchema:uiSchema,liveValidate:true});
+    this._form = new SchemaForm(schema, { formData: formData,uiSchema:uiSchema,liveValidate:true,noHtml5Validate:true},{liveMarkdown: true});
     layout.addWidget(this._form);
 
     const runButtonWidget = new Widget()
