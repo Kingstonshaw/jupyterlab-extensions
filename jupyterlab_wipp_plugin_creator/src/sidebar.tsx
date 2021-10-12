@@ -52,7 +52,7 @@ export class CreatorSidebar extends Widget {
       "ui:options": { accept: ".py" }
       
     };
-    this._form = new SchemaForm(schema, { formData: formData,uiSchema:uiSchema,liveValidate:true},{liveMarkdown: true});
+    this._form = new SchemaForm(schema, { formData: formData,uiSchema:uiSchema,liveValidate:true,noHtml5Validate:true},{liveMarkdown: true});
     layout.addWidget(this._form);
 
     const runButtonWidget = new Widget()
