@@ -27,15 +27,12 @@
     },
     "file": {
       "$id": "#/properties/file",
-      "type": "string",
-      "title": "Select files",
-      "default": "",
-      "examples": [
-        ""
-      ],
-      "format": "data-url",
-      "minLength": 1,
-      "pattern": "^(.*)$"
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "data-url"
+     },
+      "title": "Select files"
     },
     "requirements": {
       "type": "array",
