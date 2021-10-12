@@ -49,6 +49,7 @@ export class CreatorSidebar extends Widget {
       "ui:help": "Hint: Enter human-readable name"},
       "title": {
       "ui:help": "Hint: Enter machine-readable name"},
+      "ui:options": { accept: ".py" }
       
     };
     this._form = new SchemaForm(schema, { formData: formData,uiSchema:uiSchema,liveValidate:true},{liveMarkdown: true});
