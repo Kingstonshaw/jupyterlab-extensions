@@ -49,6 +49,8 @@ export class CreatorSidebar extends Widget {
       "ui:help": "Hint: Enter human-readable name"},
       "title": {
       "ui:help": "Hint: Enter machine-readable name"},
+      "requirements": {
+        "ui:help": "Hint: Enter 3rd party python packages that the plugin requires"},
       "ui:options": { accept: ".py" }
       
     };
