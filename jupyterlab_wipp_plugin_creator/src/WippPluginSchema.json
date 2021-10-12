@@ -25,6 +25,18 @@
       "minLength": 1,
       "pattern": "^(.*)$"
     },
+    "file": {
+      "$id": "#/properties/file",
+      "type": "string",
+      "title": "Select files",
+      "default": "",
+      "examples": [
+        ""
+      ],
+      "format": "data-url",
+      "minLength": 1,
+      "pattern": "^(.*)$"
+    },
     "requirements": {
       "type": "array",
       "items": {
