@@ -45,8 +45,10 @@ export class CreatorSidebar extends Widget {
       outputs: [{}],
     };
     const uiSchema: any = {
-      "name": {"ui:widget":"textarea",
-      "ui:help": "Hint: this is a hint"},
+      "name": {
+      "ui:help": "Hint: Enter human-readable name"},
+      "title": {
+      "ui:help": "Hint: Enter machine-readable name"},
       
     };
     this._form = new SchemaForm(schema, { formData: formData,uiSchema:uiSchema,liveValidate:true},{liveMarkdown: true});
