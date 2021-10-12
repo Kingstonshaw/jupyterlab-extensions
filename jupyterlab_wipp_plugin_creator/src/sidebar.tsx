@@ -49,7 +49,8 @@ export class CreatorSidebar extends Widget {
       "ui:help": "Hint: this is a hint"},
       
     };
-    this._form = new SchemaForm(schema, { formData: formData,uiSchema:uiSchema,liveValidate:true},{liveMarkdown: true});
+    // ,{liveMarkdown: true} is the IOption interface in deathbeds 
+    this._form = new SchemaForm(schema, { formData: formData,uiSchema:uiSchema,liveValidate:true});
     layout.addWidget(this._form);
 
     const runButtonWidget = new Widget()
