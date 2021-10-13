@@ -28,6 +28,7 @@ export class CreatorSidebar extends Widget {
     const schema = schemaForm
 
     this._addFileWidget = new AddedFilesWidget(state)
+    this._addFileWidget.update()
     layout.addWidget(this._addFileWidget);
 
     const formData: any = {
@@ -41,6 +42,7 @@ export class CreatorSidebar extends Widget {
       website: "",
       citation: "",
       requirements: [''],
+      file: [''],
       inputs: [{}],
       outputs: [{}],
     };
