@@ -1,3 +1,5 @@
+import os
+from pathlib import Path
 import numpy as np
 import argparse
 import logging
@@ -20,11 +22,15 @@ def main():
     
     args = parser.parse_args()
     
+    script_path = Path(__file__).parent
+
     logger.info('Arguments:')
+    logger.info(f'script path:{script_path}')
     logger.info(f'Input collection: {args.input_collection}')
     logger.info(f'Configuration parameter: {args.config_param}')
     logger.info(f'Output collection: {args.output_collection}')
     logger.info(f'Random number generated with numpy: {np.random.rand()*args.config_param}')
+
 
 if __name__ == "__main__":
     main()
