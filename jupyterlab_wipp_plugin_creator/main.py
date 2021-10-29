@@ -50,11 +50,8 @@ def main():
     fileSizeArr.sort()
     collectionSize = sum(fileSizeArr)
 
-    if collectionSize >= 1024:
-        collectionSize = collectionSize//1024
-        measure = 'GB'
 
-    logger.info(f'Collection size is {collectionSize} {measure}. Average file size: {collectionSize//len(fileSizeArr)} MB, Max file size: {fileSizeArr[-1]} MB, Min file size: {fileSizeArr[0]} MB, Median file size: {fileSizeArr[len(fileSizeArr)//2]} MB')
+    logger.info(f'Collection size is {collectionSize} {measure}. Average file size: {collectionSize//len(fileSizeArr)} {measure}, Max file size: {fileSizeArr[-1]} MB, Min file size: {fileSizeArr[0]} MB, Median file size: {fileSizeArr[len(fileSizeArr)//2]} MB')
         # logger.info(f'name:{split_tup[0]} type: {Path(file).suffix}, size:{os.path.getsize(file)}, creation time:{os.path.getmtime(file)}, modification time:{os.path.getctime(file)}')
 
 if __name__ == "__main__":
