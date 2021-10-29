@@ -48,10 +48,11 @@ def main():
         fileSizeArr.append(fileSize)
         logger.info(f'name:{split_tup[0]}, type: {split_tup[1]}, size: {fileSize} MB, created: {ctime(os.path.getmtime(filepath))}, last modified: {ctime(os.path.getctime(filepath))}')
     fileSizeArr.sort()
-    collectionSize = sum(fileSizeArr)
+    collectionSizeMB = sum(fileSizeArr)
+    collectionSizeGB = collectionSizeMB//1024
 
 
-    logger.info(f'Collection size is {collectionSize} {measure}. Average file size: {collectionSize//len(fileSizeArr)} {measure}, Max file size: {fileSizeArr[-1]} MB, Min file size: {fileSizeArr[0]} MB, Median file size: {fileSizeArr[len(fileSizeArr)//2]} MB')
+    logger.info(f'Collection size is {collectionSizeGB} GB. Average file size: {collectionSizeMB//len(fileSizeArr)} MB, Max file size: {fileSizeArr[-1]} MB, Min file size: {fileSizeArr[0]} MB, Median file size: {fileSizeArr[len(fileSizeArr)//2]} MB')
         # logger.info(f'name:{split_tup[0]} type: {Path(file).suffix}, size:{os.path.getsize(file)}, creation time:{os.path.getmtime(file)}, modification time:{os.path.getctime(file)}')
 
 if __name__ == "__main__":
